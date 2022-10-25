@@ -13,7 +13,7 @@ Allows you to create &amp; admin LinuxContainers (LXC) Using Discord
 
 # Server Requirements:
 - Any 1 Gb KVM Server will work (Testing Env)
-- Any 8 Gb Kvm Server will also work (Production Env)
+- Any 8 Gb KVM Server will also work (Production Env)
 
 # Installation!
 First make sure to modify *main.py* to your needs then do
