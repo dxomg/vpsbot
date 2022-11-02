@@ -15,6 +15,11 @@ Allows you to create &amp; admin LinuxContainers (LXC) Using Discord
 - Any 1 Gb KVM Server will work (Testing Env)
 - Any 8 Gb KVM Server will also work (Production Env)
 
+# Tested Devices:
+- Raspberry Pi 4 (4 GB Model)
+- Old 2Gb Dell Laptop
+- 4Gb 1Vcore KVM Server
+
 # Installation!
 First make sure to modify *main.py* to your needs then do
 - **apt install screenfetch git wondersharper snapd -y && snapd install lxd && lxd init**
