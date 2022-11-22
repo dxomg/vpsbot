@@ -20,7 +20,7 @@ Allows you to create &amp; admin LinuxContainers (LXC) Using Discord
 - 4Gb 1Vcore KVM Server
 
 # Installation!
-First make sure to modify *main.py* to your needs then do
+First make sure to modify *config.cfg* to your needs then do
 - **apt install screenfetch git wondersharper docker.io -y**
 - **pip install -r requirements.txt**
 - **git clone https://github.com/dxomg/vpsbot**
