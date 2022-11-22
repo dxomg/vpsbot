@@ -25,4 +25,6 @@ First make sure to modify *main.py* to your needs then do
 - **pip install -r requirements.txt**
 - **git clone https://github.com/dxomg/vpsbot**
 - **cd dockerbot**
+- **wget https://download1483.mediafire.com/nh8cisqdihkg/4hdf9gcigevw5ws/imagesamd64.tar && docker load < imagesamd64.tar** for amd64 Processors
+- **wget https://download1648.mediafire.com/e3g1zr4izvqg/ge4k03pdsb9n585/imagesarm64.tar &&  docker load < imagesarm64.tar** for arm64 Processors
 - **python3 main.py**
