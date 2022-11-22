@@ -6,8 +6,7 @@ Allows you to create &amp; admin LinuxContainers (LXC) Using Discord
 - wondersharper (apt pkg)
 - screenfetch (apt pkg)
 - git (apt pkg)
-- snapd (apt pkg)
-- lxd (snapd binary)
+- docker.io (apt pkg)
 - discord (python lib)
 - psutil (python lib)
 
@@ -22,8 +21,8 @@ Allows you to create &amp; admin LinuxContainers (LXC) Using Discord
 
 # Installation!
 First make sure to modify *main.py* to your needs then do
-- **apt install screenfetch git wondersharper snapd -y && snapd install lxd && lxd init**
-- **pip install discord psutil**
+- **apt install screenfetch git wondersharper docker.io -y**
+- **pip install -r requirements.txt**
 - **git clone https://github.com/dxomg/vpsbot**
-- **cd lxcbot**
+- **cd dockerbot**
 - **python3 main.py**
