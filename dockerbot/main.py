@@ -207,7 +207,7 @@ Net: {onstartupnet} Kibps
 # LOTS OF IFS
     if image == "alpine" and int(vpsnumout) <= vpslimit:
         print(f"{logs}User {interaction.user.id} executed {logvarcmd}")
-        await interaction.response.send_message("Creating...")
+        await interaction.response.defer()
         os.system(f'docker run -it -d --cpus="{usercpu}" --cpuset-cpus="{usercores}" --memory="{userram}m" --memory-swap="{userswap}m" -w="/root" --name="{idprefix}{interaction.user.id}" --hostname="{idprefix}{interaction.user.id}" {alpine}')
 
 
@@ -230,13 +230,13 @@ Net: {onstartupnet} Kibps
                 checkvethdone = checkveth.split(':', 1)[-1]
                 os.system(f"wondershaper {checkvethdone} {onstartupnet}")
 
-                await interaction.response.send_message(embed=embed)
+                await interaction.followup.send(embed=embed)
         except:
-            await interaction.response.send_message(embed=embed)
+            await interaction.followup.send(embed=embed)
 ######
 #    elif image == "archlinux":
 #       print(f"{logs}User {interaction.user.id} executed {logvarcmd}")
-#       await interaction.response.send_message("Creating...")
+#       await interaction.followup.send("Creating...")
 #       os.system(f'docker run -it -d --cpus="{usercpu}" --memory="{userram}m" --memory-swap="{userswap}m" -w="/root" --name="{idprefix}{interaction.user.id}" --hostname="{idprefix}{interaction.user.id}" {archlinux}')
 #
 #Set password to container
@@ -255,11 +255,11 @@ Net: {onstartupnet} Kibps
 #            checkvethdone = checkveth.split(':', 1)[-1]
 #
 #        os.system(f"wondershaper {checkvethdone} {onstartupnet}")
-#        await interaction.response.send_message(embed=embed)
+#        await interaction.followup.send(embed=embed)
 ######
     elif image == "ubuntu" and int(vpsnumout) <= vpslimit:
         print(f"{logs}User {interaction.user.id} executed {logvarcmd}")
-        await interaction.response.send_message("Creating...")
+        await interaction.response.defer()
         os.system(f'docker run -it -d --cpus="{usercpu}" --cpuset-cpus="{usercores}" --memory="{userram}m" --memory-swap="{userswap}m" -w="/root" --name="{idprefix}{interaction.user.id}" --hostname="{idprefix}{interaction.user.id}" {ubuntu}')
 
 
@@ -281,13 +281,13 @@ Net: {onstartupnet} Kibps
                 checkvethdone = checkveth.split(':', 1)[-1]
                 os.system(f"wondershaper {checkvethdone} {onstartupnet}")
 
-                await interaction.response.send_message(embed=embed)
+                await interaction.followup.send(embed=embed)
         except:
-            await interaction.response.send_message(embed=embed)
+            await interaction.followup.send(embed=embed)
 ######
     elif image == "debian" and int(vpsnumout) <= vpslimit:
         print(f"{logs}User {interaction.user.id} executed {logvarcmd}")
-        await interaction.response.send_message("Creating...")
+        await interaction.response.defer()
         os.system(f'docker run -it -d --cpus="{usercpu}" --cpuset-cpus="{usercores}" --memory="{userram}m" --memory-swap="{userswap}m" -w="/root" --name="{idprefix}{interaction.user.id}" --hostname="{idprefix}{interaction.user.id}" {debian}')
 
 
@@ -309,9 +309,9 @@ Net: {onstartupnet} Kibps
                 checkvethdone = checkveth.split(':', 1)[-1]
                 os.system(f"wondershaper {checkvethdone} {onstartupnet}")
 
-                await interaction.response.send_message(embed=embed)
+                await interaction.followup.send(embed=embed)
         except:
-            await interaction.response.send_message(embed=embed)
+            await interaction.followup.send(embed=embed)
 
 ### -ADMIN CREATE VPS- ###
 
@@ -345,7 +345,7 @@ Net: {net} Kibps
 # LOTS OF IFS
     if image == "alpine":
         print(f"{logs}User {interaction.user.id} executed {logvarcmd}")
-        await interaction.response.send_message("Creating...")
+        await interaction.response.defer()
         os.system(f'docker run -it -d --cpus="{cpu}" --cpuset-cpus="{cores}" --memory="{ram}m" --memory-swap="{swap}m" -w="/root" --name="{id}" --hostname="{id}" {alpine}')
         
 #Set password to container
@@ -364,13 +364,13 @@ Net: {net} Kibps
                 checkvethdone = checkveth.split(':', 1)[-1]
                 os.system(f"wondershaper {checkvethdone} {onstartupnet}")
 
-                await interaction.response.send_message(embed=embed)
+                await interaction.followup.send(embed=embed)
         except:
-            await interaction.response.send_message(embed=embed)
+            await interaction.followup.send(embed=embed)
 ######
 #    elif image == "archlinux":
 #       print(f"{logs}User {interaction.user.id} executed {logvarcmd}")
-#       await interaction.response.send_message("Creating...")
+#       await interaction.followup.send("Creating...")
 #       os.system(f'docker run -it -d --cpus="{usercpu}" --memory="{userram}m" --memory-swap="{userswap}m" -w="/root" --name="{idprefix}{interaction.user.id}" --hostname="{idprefix}{interaction.user.id}" {archlinux}')
 #
 #Set password to container
@@ -389,11 +389,11 @@ Net: {net} Kibps
 #            checkvethdone = checkveth.split(':', 1)[-1]
 #
 #        os.system(f"wondershaper {checkvethdone} {onstartupnet}")
-#        await interaction.response.send_message(embed=embed)
+#        await interaction.followup.send(embed=embed)
 ######
     elif image == "ubuntu":
         print(f"{logs}User {interaction.user.id} executed {logvarcmd}")
-        await interaction.response.send_message("Creating...")
+        await interaction.response.defer()
         os.system(f'docker run -it -d --cpus="{cpu}" --cpuset-cpus="{cores}" --memory="{ram}m" --memory-swap="{swap}m" -w="/root" --name="{id}" --hostname="{id}" {ubuntu}')
 
 #Set password to container
@@ -413,13 +413,13 @@ Net: {net} Kibps
                 checkvethdone = checkveth.split(':', 1)[-1]
                 os.system(f"wondershaper {checkvethdone} {onstartupnet}")
 
-                await interaction.response.send_message(embed=embed)
+                await interaction.followup.send(embed=embed)
         except:
-            await interaction.response.send_message(embed=embed)
+            await interaction.followup.send(embed=embed)
 ######
     elif image == "debian":
         print(f"{logs}User {interaction.user.id} executed {logvarcmd}")
-        await interaction.response.send_message("Creating...")
+        await interaction.response.defer()
         os.system(f'docker run -it -d --cpus="{cpu}" --cpuset-cpus="{cores}" --memory="{ram}m" --memory-swap="{swap}m" -w="/root" --name="{id}" --hostname="{id}" {debian}')
 
 #Set password to container
@@ -439,9 +439,9 @@ Net: {net} Kibps
                 checkvethdone = checkveth.split(':', 1)[-1]
                 os.system(f"wondershaper {checkvethdone} {onstartupnet}")
 
-                await interaction.response.send_message(embed=embed)
+                await interaction.followup.send(embed=embed)
         except:
-            await interaction.response.send_message(embed=embed)
+            await interaction.followup.send(embed=embed)
 
 ############## -REGEN SSH SESSION VPS- ##############
 @client.tree.command(name="regenssh", description="Regenerates ssh if it dosent work")
@@ -533,6 +533,7 @@ async def startvps(interaction: discord.Interaction):
 
     logvarcmd = "startvps"
     print(f"{logs}User {interaction.user.id} executed {logvarcmd}")
+    await interaction.response.defer()
 
 #Embed
     embed = discord.Embed(title="Start Successfull!", description="Start Vps", color=discord.Color.green())
@@ -548,7 +549,7 @@ async def startvps(interaction: discord.Interaction):
 
     os.system(f"wondershaper {checkvethdone} {onstartupnet}")
 
-    await interaction.response.send_message(embed=embed)
+    await interaction.followup.send(embed=embed)
 
 ### -ADMIN START VPS- ###
 
@@ -558,6 +559,7 @@ async def adminstartvps(interaction: discord.Interaction, id: str):
 
     logvarcmd = "adminstartvps"
     print(f"{logs}User {interaction.user.id} executed {logvarcmd}")
+    await interaction.response.defer()
 
 #Embed
     embed = discord.Embed(title="Start Successfull!", description="Start Vps", color=discord.Color.green())
@@ -573,11 +575,11 @@ async def adminstartvps(interaction: discord.Interaction, id: str):
 
     os.system(f"wondershaper {checkvethdone} {onstartupnet}")
 
-    await interaction.response.send_message(embed=embed)
+    await interaction.followup.send(embed=embed)
 
 ############## -STOP VPS- ##############
 
-@client.tree.command(name="stop", description="Allows you to stop your vps")
+@client.tree.command(name="stopvps", description="Allows you to stop your vps")
 @commands.has_role(userrole)
 async def stopvps(interaction: discord.Interaction):
 
