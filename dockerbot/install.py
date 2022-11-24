@@ -62,5 +62,9 @@ def install():
         os.system("git clone https://github.com/dxomg/vpsbot")
         os.system("cd vpsbot/dockerbot")
         os.system("wget https://download1648.mediafire.com/e3g1zr4izvqg/ge4k03pdsb9n585/imagesarm64.tar && docker load < imagesarm64.tar")
-        print(f"{bcolors.WARNING}100% Done{bcolors.ENDC}")
+        print(f"{bcolors.OKGREEN}100% Done{bcolors.ENDC}")
+        print(f"""
+        {bcolors.WARNING}Install has been completed!, now go edit the config.cfg file to your needs
+        and start the bot with the {bcolors.BOLD}python3 main.py{bcolors.ENDC} command{bcolors.ENDC}
+        """)
 install()
