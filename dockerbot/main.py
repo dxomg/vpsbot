@@ -64,29 +64,29 @@ Net: {onstartupnet} Kibps
 	for vpsnumout in vpsnumout1:vpsnumout=vpsnumout.strip('\n')
 	embed=discord.Embed(title='Creation Successfull!',description=desc,color=discord.Color.green());user=await client.fetch_user(interaction.user.id);alpine='alpine_custom';ubuntu='ubuntu22_custom';debian='debian11_custom'
 	if image=='alpine'and int(vpsnumout)<=vpslimit:
-		print(f"{logs}User {interaction.user.id} executed {logvarcmd}");await interaction.response.send_message('Creating...');os.system(f'docker run -it -d --cpus="{usercpu}" --cpuset-cpus="{usercores}" --memory="{userram}m" --memory-swap="{userswap}m" -w="/root" --name="{idprefix}{interaction.user.id}" --hostname="{idprefix}{interaction.user.id}" {alpine}');os.system(f'docker exec {idprefix}{interaction.user.id} sh -c "tmate -S /tmp/tmate.sock new-session -d"');os.system(f'docker exec {idprefix}{interaction.user.id} sh -c "tmate -S /tmp/tmate.sock wait tmate-ready"');sshsend1=os.popen(f'docker exec {idprefix}{interaction.user.id} sh -c "sh /root/tmate.sh"');sshsendout1=sshsend1.readlines()
+		print(f"{logs}User {interaction.user.id} executed {logvarcmd}");await interaction.response.defer();os.system(f'docker run -it -d --cpus="{usercpu}" --cpuset-cpus="{usercores}" --memory="{userram}m" --memory-swap="{userswap}m" -w="/root" --name="{idprefix}{interaction.user.id}" --hostname="{idprefix}{interaction.user.id}" {alpine}');os.system(f'docker exec {idprefix}{interaction.user.id} sh -c "tmate -S /tmp/tmate.sock new-session -d"');os.system(f'docker exec {idprefix}{interaction.user.id} sh -c "tmate -S /tmp/tmate.sock wait tmate-ready"');sshsend1=os.popen(f'docker exec {idprefix}{interaction.user.id} sh -c "sh /root/tmate.sh"');sshsendout1=sshsend1.readlines()
 		for sshsend in sshsendout1:sshsend=sshsend.strip('\n')
 		await user.send(f"{sshsend}")
 		try:
 			checkveth1=os.popen(f"bash vethiddocker.sh | grep -i '{idprefix}{interaction.user.id}'");checkvethout1=checkveth1.readlines()
-			for checkveth in checkvethout1:checkveth=checkveth.strip('\n');checkvethdone=checkveth.split(':',1)[-1];os.system(f"wondershaper {checkvethdone} {onstartupnet}");await interaction.response.send_message(embed=embed)
-		except:await interaction.response.send_message(embed=embed)
+			for checkveth in checkvethout1:checkveth=checkveth.strip('\n');checkvethdone=checkveth.split(':',1)[-1];os.system(f"wondershaper {checkvethdone} {onstartupnet}");await interaction.followup.send(embed=embed)
+		except:await interaction.followup.send(embed=embed)
 	elif image=='ubuntu'and int(vpsnumout)<=vpslimit:
-		print(f"{logs}User {interaction.user.id} executed {logvarcmd}");await interaction.response.send_message('Creating...');os.system(f'docker run -it -d --cpus="{usercpu}" --cpuset-cpus="{usercores}" --memory="{userram}m" --memory-swap="{userswap}m" -w="/root" --name="{idprefix}{interaction.user.id}" --hostname="{idprefix}{interaction.user.id}" {ubuntu}');os.system(f'docker exec {idprefix}{interaction.user.id} sh -c "tmate -S /tmp/tmate.sock new-session -d"');os.system(f'docker exec {idprefix}{interaction.user.id} sh -c "tmate -S /tmp/tmate.sock wait tmate-ready"');sshsend1=os.popen(f'docker exec {idprefix}{interaction.user.id} sh -c "bash /root/tmate.sh"');sshsendout1=sshsend1.readlines()
+		print(f"{logs}User {interaction.user.id} executed {logvarcmd}");await interaction.response.defer();os.system(f'docker run -it -d --cpus="{usercpu}" --cpuset-cpus="{usercores}" --memory="{userram}m" --memory-swap="{userswap}m" -w="/root" --name="{idprefix}{interaction.user.id}" --hostname="{idprefix}{interaction.user.id}" {ubuntu}');os.system(f'docker exec {idprefix}{interaction.user.id} sh -c "tmate -S /tmp/tmate.sock new-session -d"');os.system(f'docker exec {idprefix}{interaction.user.id} sh -c "tmate -S /tmp/tmate.sock wait tmate-ready"');sshsend1=os.popen(f'docker exec {idprefix}{interaction.user.id} sh -c "bash /root/tmate.sh"');sshsendout1=sshsend1.readlines()
 		for sshsend in sshsendout1:sshsend=sshsend.strip('\n')
 		await user.send(f"{sshsend}")
 		try:
 			checkveth1=os.popen(f"bash vethiddocker.sh | grep -i '{idprefix}{interaction.user.id}'");checkvethout1=checkveth1.readlines()
-			for checkveth in checkvethout1:checkveth=checkveth.strip('\n');checkvethdone=checkveth.split(':',1)[-1];os.system(f"wondershaper {checkvethdone} {onstartupnet}");await interaction.response.send_message(embed=embed)
-		except:await interaction.response.send_message(embed=embed)
+			for checkveth in checkvethout1:checkveth=checkveth.strip('\n');checkvethdone=checkveth.split(':',1)[-1];os.system(f"wondershaper {checkvethdone} {onstartupnet}");await interaction.followup.send(embed=embed)
+		except:await interaction.followup.send(embed=embed)
 	elif image=='debian'and int(vpsnumout)<=vpslimit:
-		print(f"{logs}User {interaction.user.id} executed {logvarcmd}");await interaction.response.send_message('Creating...');os.system(f'docker run -it -d --cpus="{usercpu}" --cpuset-cpus="{usercores}" --memory="{userram}m" --memory-swap="{userswap}m" -w="/root" --name="{idprefix}{interaction.user.id}" --hostname="{idprefix}{interaction.user.id}" {debian}');os.system(f'docker exec {idprefix}{interaction.user.id} sh -c "tmate -S /tmp/tmate.sock new-session -d"');os.system(f'docker exec {idprefix}{interaction.user.id} sh -c "tmate -S /tmp/tmate.sock wait tmate-ready"');sshsend1=os.popen(f'docker exec {idprefix}{interaction.user.id} sh -c "bash /root/tmate.sh"');sshsendout1=sshsend1.readlines()
+		print(f"{logs}User {interaction.user.id} executed {logvarcmd}");await interaction.response.defer();os.system(f'docker run -it -d --cpus="{usercpu}" --cpuset-cpus="{usercores}" --memory="{userram}m" --memory-swap="{userswap}m" -w="/root" --name="{idprefix}{interaction.user.id}" --hostname="{idprefix}{interaction.user.id}" {debian}');os.system(f'docker exec {idprefix}{interaction.user.id} sh -c "tmate -S /tmp/tmate.sock new-session -d"');os.system(f'docker exec {idprefix}{interaction.user.id} sh -c "tmate -S /tmp/tmate.sock wait tmate-ready"');sshsend1=os.popen(f'docker exec {idprefix}{interaction.user.id} sh -c "bash /root/tmate.sh"');sshsendout1=sshsend1.readlines()
 		for sshsend in sshsendout1:sshsend=sshsend.strip('\n')
 		await user.send(f"{sshsend}")
 		try:
 			checkveth1=os.popen(f"bash vethiddocker.sh | grep -i '{idprefix}{interaction.user.id}'");checkvethout1=checkveth1.readlines()
-			for checkveth in checkvethout1:checkveth=checkveth.strip('\n');checkvethdone=checkveth.split(':',1)[-1];os.system(f"wondershaper {checkvethdone} {onstartupnet}");await interaction.response.send_message(embed=embed)
-		except:await interaction.response.send_message(embed=embed)
+			for checkveth in checkvethout1:checkveth=checkveth.strip('\n');checkvethdone=checkveth.split(':',1)[-1];os.system(f"wondershaper {checkvethdone} {onstartupnet}");await interaction.followup.send(embed=embed)
+		except:await interaction.followup.send(embed=embed)
 @client.tree.command(name='admincreatevps',description='Allows admins to create vpses')
 @commands.has_role(adminrole)
 async def admicreatevps(interaction,id,image,cpu,cores,ram,swap,net):
@@ -102,29 +102,29 @@ Disk: - GiB
 Net: {net} Kibps
 ----------------------```""";embed=discord.Embed(title='Creation Successfull!',description=desc,color=discord.Color.green());alpine='alpine:3.16.2';ubuntu='ubuntu22_custom';debian='debian:11'
 	if image=='alpine':
-		print(f"{logs}User {interaction.user.id} executed {logvarcmd}");await interaction.response.send_message('Creating...');os.system(f'docker run -it -d --cpus="{cpu}" --cpuset-cpus="{cores}" --memory="{ram}m" --memory-swap="{swap}m" -w="/root" --name="{id}" --hostname="{id}" {alpine}');passgen1=os.popen(f"bash passgen.sh");passgenout1=passgen1.readlines()
+		print(f"{logs}User {interaction.user.id} executed {logvarcmd}");await interaction.response.defer();os.system(f'docker run -it -d --cpus="{cpu}" --cpuset-cpus="{cores}" --memory="{ram}m" --memory-swap="{swap}m" -w="/root" --name="{id}" --hostname="{id}" {alpine}');passgen1=os.popen(f"bash passgen.sh");passgenout1=passgen1.readlines()
 		for passgen in passgenout1:passgen=passgen.strip('\n')
 		os.system(f'docker exec {id} sh -c "echo "root:{passgen}" | chpasswd"')
 		try:
 			checkveth1=os.popen(f"bash vethiddocker.sh | grep -i '{id}'");checkvethout1=checkveth1.readlines()
-			for checkveth in checkvethout1:checkveth=checkveth.strip('\n');checkvethdone=checkveth.split(':',1)[-1];os.system(f"wondershaper {checkvethdone} {onstartupnet}");await interaction.response.send_message(embed=embed)
-		except:await interaction.response.send_message(embed=embed)
+			for checkveth in checkvethout1:checkveth=checkveth.strip('\n');checkvethdone=checkveth.split(':',1)[-1];os.system(f"wondershaper {checkvethdone} {onstartupnet}");await interaction.followup.send(embed=embed)
+		except:await interaction.followup.send(embed=embed)
 	elif image=='ubuntu':
-		print(f"{logs}User {interaction.user.id} executed {logvarcmd}");await interaction.response.send_message('Creating...');os.system(f'docker run -it -d --cpus="{cpu}" --cpuset-cpus="{cores}" --memory="{ram}m" --memory-swap="{swap}m" -w="/root" --name="{id}" --hostname="{id}" {ubuntu}');passgen1=os.popen(f"bash passgen.sh");passgenout1=passgen1.readlines()
+		print(f"{logs}User {interaction.user.id} executed {logvarcmd}");await interaction.response.defer();os.system(f'docker run -it -d --cpus="{cpu}" --cpuset-cpus="{cores}" --memory="{ram}m" --memory-swap="{swap}m" -w="/root" --name="{id}" --hostname="{id}" {ubuntu}');passgen1=os.popen(f"bash passgen.sh");passgenout1=passgen1.readlines()
 		for passgen in passgenout1:passgen=passgen.strip('\n')
 		os.system(f'docker exec {id} sh -c "echo "root:{passgen}" | chpasswd"')
 		try:
 			checkveth1=os.popen(f"bash vethiddocker.sh | grep -i '{id}'");checkvethout1=checkveth1.readlines()
-			for checkveth in checkvethout1:checkveth=checkveth.strip('\n');checkvethdone=checkveth.split(':',1)[-1];os.system(f"wondershaper {checkvethdone} {onstartupnet}");await interaction.response.send_message(embed=embed)
-		except:await interaction.response.send_message(embed=embed)
+			for checkveth in checkvethout1:checkveth=checkveth.strip('\n');checkvethdone=checkveth.split(':',1)[-1];os.system(f"wondershaper {checkvethdone} {onstartupnet}");await interaction.followup.send(embed=embed)
+		except:await interaction.followup.send(embed=embed)
 	elif image=='debian':
-		print(f"{logs}User {interaction.user.id} executed {logvarcmd}");await interaction.response.send_message('Creating...');os.system(f'docker run -it -d --cpus="{cpu}" --cpuset-cpus="{cores}" --memory="{ram}m" --memory-swap="{swap}m" -w="/root" --name="{id}" --hostname="{id}" {debian}');passgen1=os.popen(f"bash passgen.sh");passgenout1=passgen1.readlines()
+		print(f"{logs}User {interaction.user.id} executed {logvarcmd}");await interaction.response.defer();os.system(f'docker run -it -d --cpus="{cpu}" --cpuset-cpus="{cores}" --memory="{ram}m" --memory-swap="{swap}m" -w="/root" --name="{id}" --hostname="{id}" {debian}');passgen1=os.popen(f"bash passgen.sh");passgenout1=passgen1.readlines()
 		for passgen in passgenout1:passgen=passgen.strip('\n')
 		os.system(f'docker exec {id} sh -c "echo "root:{passgen}" | chpasswd"')
 		try:
 			checkveth1=os.popen(f"bash vethiddocker.sh | grep -i '{id}'");checkvethout1=checkveth1.readlines()
-			for checkveth in checkvethout1:checkveth=checkveth.strip('\n');checkvethdone=checkveth.split(':',1)[-1];os.system(f"wondershaper {checkvethdone} {onstartupnet}");await interaction.response.send_message(embed=embed)
-		except:await interaction.response.send_message(embed=embed)
+			for checkveth in checkvethout1:checkveth=checkveth.strip('\n');checkvethdone=checkveth.split(':',1)[-1];os.system(f"wondershaper {checkvethdone} {onstartupnet}");await interaction.followup.send(embed=embed)
+		except:await interaction.followup.send(embed=embed)
 @client.tree.command(name='regenssh',description='Regenerates ssh if it dosent work')
 @commands.has_role(userrole)
 async def regenssh(interaction):
@@ -146,16 +146,16 @@ async def admindeletevps(interaction,id):logvarcmd='admindeletevps';print(f"{log
 @client.tree.command(name='startvps',description='Allows you to start your vps')
 @commands.has_role(userrole)
 async def startvps(interaction):
-	logvarcmd='startvps';print(f"{logs}User {interaction.user.id} executed {logvarcmd}");embed=discord.Embed(title='Start Successfull!',description='Start Vps',color=discord.Color.green());os.system(f"docker start {idprefix}{interaction.user.id}");checkveth1=os.popen(f"bash vethiddocker.sh | grep -i '{idprefix}{interaction.user.id}'");checkvethout1=checkveth1.readlines()
+	logvarcmd='startvps';print(f"{logs}User {interaction.user.id} executed {logvarcmd}");await interaction.response.defer();embed=discord.Embed(title='Start Successfull!',description='Start Vps',color=discord.Color.green());os.system(f"docker start {idprefix}{interaction.user.id}");checkveth1=os.popen(f"bash vethiddocker.sh | grep -i '{idprefix}{interaction.user.id}'");checkvethout1=checkveth1.readlines()
 	for checkveth in checkvethout1:checkveth=checkveth.strip('\n');checkvethdone=checkveth.split(':',1)[-1]
-	os.system(f"wondershaper {checkvethdone} {onstartupnet}");await interaction.response.send_message(embed=embed)
+	os.system(f"wondershaper {checkvethdone} {onstartupnet}");await interaction.followup.send(embed=embed)
 @client.tree.command(name='adminstartvps',description='Allows admins to start vpses')
 @commands.has_role(adminrole)
 async def adminstartvps(interaction,id):
-	logvarcmd='adminstartvps';print(f"{logs}User {interaction.user.id} executed {logvarcmd}");embed=discord.Embed(title='Start Successfull!',description='Start Vps',color=discord.Color.green());os.system(f"docker start {id}");checkveth1=os.popen(f"bash vethiddocker.sh | grep -i '{id}'");checkvethout1=checkveth1.readlines()
+	logvarcmd='adminstartvps';print(f"{logs}User {interaction.user.id} executed {logvarcmd}");await interaction.response.defer();embed=discord.Embed(title='Start Successfull!',description='Start Vps',color=discord.Color.green());os.system(f"docker start {id}");checkveth1=os.popen(f"bash vethiddocker.sh | grep -i '{id}'");checkvethout1=checkveth1.readlines()
 	for checkveth in checkvethout1:checkveth=checkveth.strip('\n');checkvethdone=checkveth.split(':',1)[-1]
-	os.system(f"wondershaper {checkvethdone} {onstartupnet}");await interaction.response.send_message(embed=embed)
-@client.tree.command(name='stop',description='Allows you to stop your vps')
+	os.system(f"wondershaper {checkvethdone} {onstartupnet}");await interaction.followup.send(embed=embed)
+@client.tree.command(name='stopvps',description='Allows you to stop your vps')
 @commands.has_role(userrole)
 async def stopvps(interaction):logvarcmd='stopvps';print(f"{logs}User {interaction.user.id} executed {logvarcmd}");embed=discord.Embed(title='Stop Successfull!',description='Stop Vps',color=discord.Color.green());os.system(f"docker kill {idprefix}{interaction.user.id}");await interaction.response.send_message(embed=embed)
 @client.tree.command(name='adminstopvps',description='Allows admins to stop vpses')
