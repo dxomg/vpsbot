@@ -53,7 +53,7 @@ def install():
         print(f"{bcolors.WARNING}70% Done{bcolors.ENDC}")
         os.system("git clone https://github.com/dxomg/vpsbot")
         os.system("cd vpsbot/dockerbot")
-        os.system("wget https://download1483.mediafire.com/nh8cisqdihkg/4hdf9gcigevw5ws/imagesamd64.tar && docker load < imagesamd64.tar")
+        os.system("wget -O imagesamd64.tar.gz 'https://drive.google.com/uc?id=1iUUNLS4hhSk6vCXMwjR09jCOFAblK7as&export=download&confirm=t&uuid=6aa2ceab-5731-4e33-ab08-f054aedafe3e' && docker load < imagesamd64.tar")
         print(f"{bcolors.WARNING}100% Done{bcolors.ENDC}")
     if getarch() == 2:
         print(f"{bcolors.WARNING}Installing requirements{bcolors.ENDC}")
@@ -61,7 +61,7 @@ def install():
         print(f"{bcolors.WARNING}70% Done{bcolors.ENDC}")
         os.system("git clone https://github.com/dxomg/vpsbot")
         os.system("cd vpsbot/dockerbot")
-        os.system("wget https://download1648.mediafire.com/e3g1zr4izvqg/ge4k03pdsb9n585/imagesarm64.tar && docker load < imagesarm64.tar")
+        os.system("wget -O imagesamd64.tar.gz 'https://drive.google.com/uc?id=1lGrbGAnDBbGpUH63X_zq2Bxy0EeOXNnY&export=download&confirm=t&uuid=90ee1fa3-806d-40c3-9cc1-d31adf586b17' && docker load < imagesarm64.tar")
         print(f"{bcolors.OKGREEN}100% Done{bcolors.ENDC}")
         print(f"""
         {bcolors.WARNING}Install has been completed!, now go edit the config.cfg file to your needs
