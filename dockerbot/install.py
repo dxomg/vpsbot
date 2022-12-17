@@ -27,7 +27,7 @@ print(f"""
 
 Choose carefully!
 """)
-
+def getarch():
     while True:
         try:
             architecture = int(input("> "))
