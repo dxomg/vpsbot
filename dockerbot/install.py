@@ -28,26 +28,24 @@ print(f"""
 Choose carefully!
 """)
 
-def getarch():
-    try:
-        architecture = int(input("> "))
+    while True:
+        try:
+            architecture = int(input("> "))
 
-        if architecture == 1:
-            return architecture
-        elif architecture == 2:
-            return architecture
-        elif architecture == 3:
-            print("You can search on google how to get it :)")
-        elif architecture == 4:
-            print("Ask the developer for help :)")
-        else:
+            if architecture in (1, 2):
+                return architecture
+            elif architecture == 3:
+                print("You can search on google how to get it :)")
+            elif architecture == 4:
+                print("Ask the developer for help :)")
+            else:
+                print("Enter a correct value!")
+        except ValueError:
             print("Enter a correct value!")
-    except:
-        print("Enter a correct value!")
-getarch()
 
 def install():
-    if getarch() == 1:
+    architecture = getarch()
+    if architecture == 1:
         print(f"{bcolors.WARNING}Installing requirements{bcolors.ENDC}")
         os.system("apt install screenfetch git wondershaper docker.io -y")
         print(f"{bcolors.WARNING}70% Done{bcolors.ENDC}")
@@ -55,7 +53,7 @@ def install():
         os.system("cd vpsbot/dockerbot")
         os.system("wget -O imagesamd64.tar.gz 'https://drive.google.com/uc?id=1iUUNLS4hhSk6vCXMwjR09jCOFAblK7as&export=download&confirm=t&uuid=6aa2ceab-5731-4e33-ab08-f054aedafe3e' && docker load < imagesamd64.tar")
         print(f"{bcolors.WARNING}100% Done{bcolors.ENDC}")
-    if getarch() == 2:
+    if architecture  == 2:
         print(f"{bcolors.WARNING}Installing requirements{bcolors.ENDC}")
         os.system("apt install screenfetch git wondershaper docker.io -y")
         print(f"{bcolors.WARNING}70% Done{bcolors.ENDC}")
